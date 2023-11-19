@@ -157,7 +157,11 @@ function _multiselect {
 
     # Create our menu my_options associative array
     declare -A my_options
+<<<<<<< HEAD
     eval "$(curl -sL "https://raw.githubusercontent.com/wernersa/Synology-Templates/main/templates/template-file-list.json" | jq -r '.templates | to_entries[]|@sh"my_options[\(.value)]=false"')"
+=======
+    eval "$(curl -sL "https://raw.githubusercontent.com/wernersa/Guides-Synology-Templates/main/templates/template-file-list.json" | jq -r '.templates | to_entries[]|@sh"my_options[\(.value)]=false"')"
+>>>>>>> 94e063641dd432506a3910f382a1c4cef12c8abf
 
     # Create some local arrays we need and make sure they're set to empty when the function is used/looped in the script
     local selected_values=()
@@ -591,7 +595,11 @@ printf '\n%b\n' " ${utick} User has rights to share."
 # VPN stuff
 #################################################################################################################################################
 install_tun() {
+<<<<<<< HEAD
     if curl -sL https://raw.githubusercontent.com/wernersa/Synology-Templates/main/script/tun.service -o "/etc/systemd/system/tun.service"; then
+=======
+    if curl -sL https://raw.githubusercontent.com/wernersa/Guides-Synology-Templates/main/script/tun.service -o "/etc/systemd/system/tun.service"; then
+>>>>>>> 94e063641dd432506a3910f382a1c4cef12c8abf
          printf '\n%b\n' " ${utick} Service file to start Tun downloaded."
     fi 
     if systemctl enable /etc/systemd/system/tun.service; then
@@ -644,7 +652,11 @@ EOF
 fi
 
 printf '\n%b\n' " ${ulmc} Downloading docker .env"
+<<<<<<< HEAD
 if wget -qO "${docker_conf_dir}/appdata/.env" https://raw.githubusercontent.com/wernersa/Synology-Templates/main/docker-compose/.env; then
+=======
+if wget -qO "${docker_conf_dir}/appdata/.env" https://raw.githubusercontent.com/wernersa/Guides-Synology-Templates/main/docker-compose/.env; then
+>>>>>>> 94e063641dd432506a3910f382a1c4cef12c8abf
     printf '\n%b\n' " ${utick} Docker .env downloaded."
 else
     printf '\n%b\n' " ${ucross} There was a problem downloading then .env, try again"
@@ -678,7 +690,11 @@ printf '\n%b\n' " ${utick} ${clc}${docker_data_dir}${cend} set."
 # compose template downloader
 #################################################################################################################################################
 get_app_compose() {
+<<<<<<< HEAD
     if wget -qO "${docker_conf_dir}/appdata/${1}.yml" "https://raw.githubusercontent.com/wernersa/Synology-Templates/main/templates/${1,,}.yml"; then
+=======
+    if wget -qO "${docker_conf_dir}/appdata/${1}.yml" "https://raw.githubusercontent.com/wernersa/Guides-Synology-Templates/main/templates/${1,,}.yml"; then
+>>>>>>> 94e063641dd432506a3910f382a1c4cef12c8abf
         #printf '\n' >> "${docker_conf_dir}/appdata/docker-compose.yml"
 
         [[ "${options}" = 'sabnzbd' ]] && sed -r 's|- 8080:8080$|- 7080:8080|g' -i "${docker_conf_dir}/appdata/${1}.yml"
@@ -757,7 +773,11 @@ while true; do
                                                 printf '\n%b\n' " ${utick} wg0.conf found and fixed."
                                             fi
 
+<<<<<<< HEAD
                                             if curl -sL https://raw.githubusercontent.com/wernersa/Synology-Templates/main/script/PreUp.sh -o "${docker_conf_dir}/appdata/qbittorrent/wireguard/PreUp.sh"; then
+=======
+                                            if curl -sL https://raw.githubusercontent.com/wernersa/Guides-Synology-Templates/main/script/PreUp.sh -o "${docker_conf_dir}/appdata/qbittorrent/wireguard/PreUp.sh"; then
+>>>>>>> 94e063641dd432506a3910f382a1c4cef12c8abf
                                                 printf '\n%b\n' " ${utick} PreUp.sh downloaded to ${docker_conf_dir}/appdata/qbittorrent/wireguard/PreUp.sh"
                                             fi
 
